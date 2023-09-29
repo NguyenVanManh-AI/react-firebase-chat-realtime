@@ -12,10 +12,14 @@ const SendMessage = ({ scroll }) => {
       return;
     }
     const { uid, displayName, photoURL } = auth.currentUser;
+    console.log(auth);
+    console.log(auth.currentUser.reloadUserInfo.providerUserInfo[0]);
     await addDoc(collection(db, "messages"), {
       text: message,
       name: displayName,
       avatar: photoURL,
+      from : 99,
+      to : 9,
       createdAt: serverTimestamp(),
       uid,
     });

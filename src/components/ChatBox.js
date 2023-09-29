@@ -6,11 +6,13 @@ import {
   onSnapshot,
   limit,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
 
 const ChatBox = () => {
+  console.log(auth.currentUser.reloadUserInfo.providerUserInfo[0]);
+
   const [messages, setMessages] = useState([]);
   const scroll = useRef();
 
